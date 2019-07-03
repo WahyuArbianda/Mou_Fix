@@ -100,16 +100,6 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 					</div>
 					<div class="form-group">
 						<input name="id_tipe" id="id_tipe" value="<?= $t->id_tipe=>keterangan ?>">
-
-						<!-- <select class="form-control" name="id_tipe" id="id_tipe">
-							<?php foreach ($tipe as $t): ?>
-								<?php if($t == $tipe['id_tipe']): ?>
-									<option value="<?= $t; ?>" selected></option>
-								<?php else: ?>
-									<option value="<?= $t; ?>"></option>
-								<?php endif ?>
-							<?php endforeach; ?>
-						</select> -->
 					</div>
 				</div>
 				<div class="modal-footer">
