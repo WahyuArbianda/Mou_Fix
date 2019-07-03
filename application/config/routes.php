@@ -55,6 +55,8 @@ $route['translate_uri_dashes'] 	= FALSE;
 
 
 //								namafolder/namaController/namaFungsi
+
+
 //Admin
 $route['admin/dashboard']			='admin/Admin/dashboard';
 $route['admin/user'] 				='admin/Admin/user';
@@ -63,7 +65,19 @@ $route['admin/user/detail/(:any)']	='admin/Admin/userDetail/$1';
 $route['admin/user/delete/(:any)'] 	='admin/Admin/userDelete/$1';
 $route['admin/user/edit/(:any)'] 	='admin/Admin/userEdit/$1';
 
-$route['admin/user/password'] = 'admin/Admin/password';
+
+//Tipe Admin
+$route['admin/tipe/add']			='admin/Admin/tipeAdd';
+
+
+//Enkripsi Password
+$route['admin/user/password'] 		='admin/Admin/password';
+
+
+//Dinas
+$route['admin/dinas']				='admin/Admin/dinas';
+$route['admin/dinas/add']			='admin/Admin/dinasAdd';
+$route['admin/dinas/delete/(:any)']	='admin/Admin/dinasDelete/$1';
 
 //MOU
 

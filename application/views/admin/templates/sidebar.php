@@ -15,11 +15,25 @@
    </li>
 
    <hr class="sidebar-divider my-0">         
-   <li class="nav-item">
+   <!-- <li class="nav-item">
       <a class="nav-link" href="<?= base_url('admin/user'); ?>">
          <i class="fas fa-fw fa-user"></i>
          <span>Manage User</span>
       </a>
+   </li> -->
+
+   <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+         <i class="fas fa-fw fa-user"></i>
+         <span>Manage User</span>
+      </a>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+         <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="<?= base_url('admin/user');  ?>">Data Users</a>
+            <!-- <a class="collapse-item" href="#">Tipe Admin</a> -->
+            <a class="collapse-item" href="<?= base_url('admin/dinas'); ?>">Data Dinas</a>
+         </div>
+      </div>
    </li>
 
    <hr class="sidebar-divider my-0">         
