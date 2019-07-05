@@ -12,6 +12,7 @@
 					<h5 class="card-title"><?= $user['nama']; ?></h5>
 					<h6 class="card-text">NIP : <?= $user['nip']; ?></h6>
 					<p class="card-text">Email : <?= $user['email']; ?></p>
+					<p class="card-text">Level : <?= $user['id_tipe']; ?></p>
 					<p class="card-text">Jabatan : <?= $user['jabatan']; ?></p>
 					<a  class="btn btn-sm btn-primary" href="<?= base_url('admin/user'); ?>" role="button">Back</a>
 				</div>

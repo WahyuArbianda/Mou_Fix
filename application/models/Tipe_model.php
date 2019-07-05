@@ -14,6 +14,7 @@ class Tipe_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('tipe_admin');
 		$this->db->where('is_delete','1');
+		$this->db->distinct();
 
 		$query = $this->db->get();
 		return $query->result();

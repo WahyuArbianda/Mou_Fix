@@ -33,14 +33,12 @@ class Admin_model extends CI_Model {
 		$data = [
 
 			"id_admin" 	=> rand(1,100).substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, 3),
-			// "id_tipe" 	=> rand(10,100),
+			"id_tipe"	=> $this->input->post('id_tipe'),
 			"nip" 		=> $this->input->post('nip'),
 			"username" 	=> $this->input->post('username', true),
 			"password" 	=> $this->input->post('password', true),
 			"email" 	=> $this->input->post('email', true),
 			"nama"		=> $this->input->post('name', true),
-			
-			"id_tipe"	=> $this->input->post('id_tipe'),
 			"jabatan"	=> $this->input->post('jabatan',true)
 		];
 
@@ -48,6 +46,8 @@ class Admin_model extends CI_Model {
 	}
 
 	public function edit(){
+
+		$this->db->trans_begin();
 
 		$data = [
 			"id_tipe" 	=> $this->input->post('id_tipe'),
@@ -61,6 +61,16 @@ class Admin_model extends CI_Model {
 
 			$this->db-> where('id_admin', $this->input->post('id'));
 			$this->db-> update('admin', $data);
+
+			// 
+
+
+		if($this->db->trans_status() == FALSE) {
+			$this->db->trans_rollback();
+		} else {
+			$this->db->trans_commit();
+		}
+
 	} 
 
 	public function delete($id){

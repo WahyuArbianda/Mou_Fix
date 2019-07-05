@@ -70,6 +70,14 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<form action="<?= base_url('admin/user/add'); ?>" method="post">
 				<div class="modal-body">
 					<div class="form-group">
+						<select class="form-control" name="id_tipe" id="id_tipe">
+							<option value="0">Pilih Tipe Admin</option>
+							<?php foreach ($tipe as $t): ?>
+								<option value="<?= $t->id_tipe; ?>"><?= $t->keterangan; ?></option>
+							<?php endforeach; ?>
+						</select>
+					</div>
+					<div class="form-group">
 						<input type="text" class="form-control" id="nip" name="nip" placeholder="NIP">
 					</div>
 					<div class="form-group">
@@ -85,21 +93,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<input type="text" class="form-control" id="name" name="name" placeholder="Nama Lengkap">
 					</div>
 					<div class="form-group">
-						<!-- <select class="form-control" id="jabatan" name="jabatan">
-							<option value="Super Admin">Super Admin</option>
-							<option value="Admin MOU">Admin MOU</option>
-							<option value="Admin PKS">Admin PKS</option>
-						</select>
-						 -->
-						<select class="form-control" name="jabatan" id="jabatan">
-							<option value="0">Pilih Jabatan</option>
-							<?php foreach ($tipe as $t): ?>
-								<option value="<?= $t->keterangan; ?>"><?= $t->keterangan; ?></option>
-							<?php endforeach; ?>
-						</select>
-					</div>
-					<div class="form-group">
-						<input name="id_tipe" id="id_tipe" value="<?= $t->id_tipe=>keterangan ?>">
+						<input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Tulis Jabatan Anda">
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -147,7 +141,6 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 						<div class="table-responsive">
 							<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 								<thead align="center">
-									<!-- <th>ID Tipe</th> -->
 									<th>Tipe Admin</th>
 									<th>Action</th>
 								</thead>
@@ -155,17 +148,8 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 
 									<?php foreach ($tipe as $t): ?>
 									<tr> 
-										<!-- <td><?= $t->id_tipe; ?></td> -->
 										<td><?= $t->keterangan; ?></td>
-										<!-- <td>
-											<?php if ($t->is_delete=='1'): ?>
-												<a href="#!" class="badge badge-pill badge-secondary">Active</a>
-											<?php else: ?>
-												<a href="#!" class="badge badge-pill badge-success">Disable</a>
-											<?php endif ?>
-										</td> -->
 										<td>
-											<!-- <a href="<?= base_url("admin/user/edit/".$u->id_admin); ?>" class="badge badge-pill badge-warning">Edit</a> -->
 											<a href="<?= base_url("admin/user/delete/".$u->id_admin); ?>" class="badge badge-pill badge-danger" onclick="return confirm('Yakin hapus data?');">Delete</a>
 										</td>
 									</tr>
