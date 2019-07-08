@@ -47,7 +47,7 @@ class Admin_model extends CI_Model {
 
 	public function edit(){
 
-		$this->db->trans_begin();
+		$this->db->trans_start();
 
 		$data = [
 			"id_tipe" 	=> $this->input->post('id_tipe'),
@@ -62,13 +62,25 @@ class Admin_model extends CI_Model {
 			$this->db-> where('id_admin', $this->input->post('id'));
 			$this->db-> update('admin', $data);
 
-			// 
+			// 	
 
+		$data2 =[
+			"keterangan"	=> $this->input->post('keterangan', true),
+			"is_delete"		=> '1'
+			];
+
+			$this->db->where('id_tipe', $this->input->post('id_tipe')); 
+			$this->db->update('tipe_admin', $data2);
+
+
+		$this->db->trans_complete();
 
 		if($this->db->trans_status() == FALSE) {
 			$this->db->trans_rollback();
+			return false;
 		} else {
 			$this->db->trans_commit();
+			return true;
 		}
 
 	} 

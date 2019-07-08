@@ -44,7 +44,7 @@
 								<a href="<?= base_url("admin/user/delete/".$u->id_admin); ?>" class="badge badge-pill badge-danger" onclick="return confirm('Yakin hapus data?');">Delete</a>
 							</td>
 						</tr>
-						<?php endforeach;?>
+						<?php endforeach ?>
 					</tbody>
 				</table>
 			</div>
@@ -69,6 +69,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 			</div>
 			<form action="<?= base_url('admin/user/add'); ?>" method="post">
 				<div class="modal-body">
+
 					<div class="form-group">
 						<select class="form-control" name="id_tipe" id="id_tipe">
 							<option value="0">Pilih Tipe Admin</option>
@@ -77,6 +78,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<?php endforeach; ?>
 						</select>
 					</div>
+					
 					<div class="form-group">
 						<input type="text" class="form-control" id="nip" name="nip" placeholder="NIP">
 					</div>

@@ -117,10 +117,11 @@ class Admin extends CI_Controller {
 	public function userEdit($id){
 		
 		$user = $this->admin_model;
-		$data['jabatan'] = ['Super Admin', 'Admin MOU','Admin PKS'];
 		$data["user"] = $user->getByIdUser($id);
+		$data["tipe"] = $this->tipe_model->getAll();
+		// $data['jabatan'] = ['Super Admin', 'Admin MOU','Admin PKS'];
 
-		$this->form_validation->set_rules('id_tipe','ID Tipe','required|trim');
+		// $this->form_validation->set_rules('id_tipe','ID Tipe','required|trim');
 		$this->form_validation->set_rules('nip','NIP', 'required|trim');
 		$this->form_validation->set_rules('username','Username', 'required|trim');
 		$this->form_validation->set_rules('password','Password', 'required');

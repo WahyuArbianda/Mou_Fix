@@ -20,6 +20,11 @@ class Tipe_model extends CI_Model {
 		return $query->result();
 	}
 
+	// public function getByIdTipe($id){
+
+	// 	return $this->db->get_where($this->_table, ["id_tipe"=>$id])->row_array();
+	// }
+
 	public function getTipeAdmin(){
 		
 		$this->db->select('admin.id_admin, admin.id_tipe, admin.jabatan, tipe_admin.keterangan, tipe_admin.is_delete');

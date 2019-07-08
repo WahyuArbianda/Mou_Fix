@@ -7,13 +7,28 @@
          <form action="" method="post">
             <div class="form-body">
 
-               <input type="hidden" name="id" id="id" value="<?= $user['id_admin'] ?>">
-
+               <div class="form-group">
+                  <label for="">ID Admin</label>                  
+                  <input class="form-control" type="text" name="id" id="id" value="<?= $user['id_admin'] ?>" disabled>
+               </div>
                <div class="form-group">
                   <label for="">ID Tipe</label>
-                  <input type="text" class="form-control" id="id_tipe" name="id_tipe" placeholder="ID Tipe" value="<?= $user['id_tipe']; ?>">
-                  <small class="form-text text-danger"><?= form_error('id_tipe'); ?></small>
+                  <input class="form-control" type="text" name="id_tipe" id="id_tipe"  value="<?= $user['id_tipe']; ?>" disabled>
                </div>
+<!-- ========================================================================= -->
+               <div class="form-group">
+                  <label for="">Pilih Tipe Admin</label>
+                  <select class="form-control" id="keterangan" name="keterangan">
+                     <?php foreach ($tipe as $t):?>
+                        <?php if($t == $tipe['keterangan']): ?>
+                           <option value="<?= $t->keterangan; ?>" selected><?= $t->keterangan; ?></option>
+                        <?php else: ?>
+                           <option value="<?= $t->keterangan; ?>"><?= $t->keterangan; ?></option>
+                        <?php endif ?>
+                     <?php endforeach; ?>
+                  </select>
+               </div>
+
                <div class="form-group">
                   <label for="">NIP</label>
                   <input type="text" class="form-control" id="nip" name="nip" placeholder="NIP" value="<?= $user['nip']; ?>">
@@ -41,15 +56,8 @@
                </div>
                <div class="form-group">
                   <label for="">Jabatan</label>
-                  <select class="form-control" id="jabatan" name="jabatan">
-                     <?php foreach ($jabatan as $j):?>
-                        <?php if($j == $user['jabatan']): ?>
-                           <option value="<?= $j; ?>" selected><?= $j; ?></option>
-                        <?php else: ?>
-                           <option value="<?= $j; ?>"><?= $j; ?></option>
-                        <?php endif ?>
-                     <?php endforeach; ?>
-                  </select>
+                  <input type="text" class="form-control" id="jabatan" name="jabatan" placeholder="Tulis Jabatan Anda" value="<?= $user['jabatan']; ?>">
+                  <small class="form-text text-danger"><?= form_error('jabatan'); ?></small>
                </div>
                <a  class="btn btn-danger" href="<?= base_url('admin/user'); ?>" role="button">Back</a>
                <button class="btn btn-primary" name="edit" type="submit">Edit Data</button>
